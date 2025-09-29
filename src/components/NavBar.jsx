@@ -1,8 +1,6 @@
 import React from "react";
-import { useAuthContext } from "../context/authContext";
-import UserProfile from "./UserProfile";
+import Swal from "sweetalert2";
 const NavBar = () => {
-  const { user } = useAuthContext();
   // const menuItems = [
   //   {
   //     name: "Search",
@@ -61,20 +59,7 @@ const NavBar = () => {
             ))} */}
           </ul>
         </div>
-        <div className="navbar-end flex gap-4">
-          {user ? (
-            <UserProfile></UserProfile>
-          ) : (
-            <div>
-              <a href="/register" className="btn btn-outline btn-primary">
-                Register
-              </a>
-              <a href="/login" className="btn btn-outline btn-success">
-                Login
-              </a>
-            </div>
-          )}
-        </div>
+        <div className="navbar-end flex gap-4"></div>
       </div>
     </div>
   );
