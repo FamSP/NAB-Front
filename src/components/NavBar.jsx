@@ -1,20 +1,6 @@
 import React from "react";
 import Swal from "sweetalert2";
 const NavBar = () => {
-  // const menuItems = [
-  //   {
-  //     name: "Search",
-  //     url: "/seatv",
-  //   },
-  //   {
-  //     name: "Add Restaurant",
-  //     url: "/add",
-  //   },
-  //   {
-  //     name: "About Us",
-  //     url: "/about",
-  //   },
-  // ];
   return (
     <div>
       <div className="navbar bg-base-100 shadow-sm">
@@ -41,22 +27,30 @@ const NavBar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
-              {/* {menuItems.map((item) => (
-                <li>
-                  <a href={item.url}>{item.name}</a>
-                </li>
-              ))} */}
+              <li>
+                <a href="/Books">Books</a>
+              </li>
+              <li>
+                <a href="/Comics">Comics</a>
+              </li>
+              <li>
+                <a href="/Journals">Journals</a>
+              </li>
             </ul>
           </div>
           <a className="btn btn-ghost text-xl">Grab Restaurant</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            {/* {menuItems.map((item) => (
-              <li>
-                <a href={item.url}>{item.name}</a>
-              </li>
-            ))} */}
+            <li>
+              <a href="/Books">Books</a>
+            </li>
+            <li>
+              <a href="/Comics">Comics</a>
+            </li>
+            <li>
+              <a href="/Journals">Journals</a>
+            </li>
           </ul>
         </div>
         <div className="navbar-end flex gap-4"></div>
