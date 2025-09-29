@@ -27,6 +27,7 @@ const Card = (props) => {
   };
 
   return (
+    
     <div className="card bg-base-100 w-96 shadow-sm">
       <figure>
         <img src={props.coverImage} alt={props.title} />
@@ -34,7 +35,6 @@ const Card = (props) => {
       <div className="card-body">
         <h2 className="card-title">
           {props.title}
-          <div className="badge badge-secondary">{props.status}</div>
         </h2>
         <p>Author: {props.author}</p>
         <p>Category: {props.category}</p>
@@ -48,7 +48,6 @@ const Card = (props) => {
         <p>Description: {props.description}</p>
         <p>Location: {props.location}</p>
         <p>Added Date: {props.addedDate}</p>
-        {/* Actions for admin/moderator */}
 
         <div className="card-actions justify-end">
           <button
