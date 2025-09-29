@@ -1,58 +1,66 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import RestaurantService from "../services/restaurant.service";
+import BookService from "../services/book.service";
 import Swal from "sweetalert2";
 const Update = () => {
   //Get ID from URL
   const { id } = useParams();
-  const [restaurant, setRestaurant] = useState({
+  const [book, setBook] = useState({
     title: "",
     type: "",
     imageUrl: "",
   });
 
   useEffect(() => {
-    const editRestaurantById = async (id) => {
+    const editBookById = async (id) => {
       try {
-        const response = await RestaurantService.editRestaurantById(id);
+        const response = await BookService.editBookById(id);
 
         if (response.status === 200) {
-          setRestaurant(response.data);
+          setBook(response.data);
         }
       } catch (error) {
         Swal.fire({
-          title: "Get All Restaurants",
+          title: "Get All Book",
           icon: "error",
           text: error?.response?.data?.message || error.message,
         });
       }
     };
 
-    editRestaurantById(); // Call the async function
+    editBookById(); // Call the async function
   }, [id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setRestaurant({ ...restaurant, [name]: value });
+    setBook({ ...book, [name]: value });
   };
   const handleSubmit = async () => {
     try {
-      const response = await fetch(
-        "http://localhost:5000/api/v1/restaurant/" + id,
+     const response = await BookService.editBookById(id);
         {
           method: "PUT",
-          body: JSON.stringify(restaurant),
+          body: JSON.stringify(book),
           headers: {
             "Content-Type": "application/json",
           },
         }
-      );
       if (response.ok) {
         alert("Restaurant Updated succesfully!!!");
         setRestaurant({
           title: "",
-          type: "",
-          imageUrl: "",
+    author: "",
+    category: "",
+    publishYear: "",
+    isbn: "",
+    publisher: "",
+    edition: "",
+    pageCount: "",
+    language: "",
+    genre: "",
+    description: "",
+    coverImage: "",
+    location: "",
         });
       }
     } catch (error) {
